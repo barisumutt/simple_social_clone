@@ -1,3 +1,4 @@
+# groups models
 from django.db import models
 from django.utils.text import slugify
 from .. import misaka
@@ -9,9 +10,6 @@ from django import template
 register = template.Library()
 
 from django.urls import reverse
-
-
-
 
 
 class Group(models.Model):
