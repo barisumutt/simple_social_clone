@@ -1,6 +1,7 @@
 {% extends "groups/group_base.html %}
 
 {%  block pregroup %}
+
     <h1>{{group.name}}</h1>
     <h2>Member Count: {{group.members.count}}</h2>
 
@@ -15,9 +16,11 @@
                 class="glyphicon glyphicon-ok-circle"></span>Join</a>
         {% endif %}
     </div>
+
 {% endblock %}
 
 {% block group_content %}
+
     <div class="col-md-8">
         {% if group.posts.count == 0 %}
             <h2>No posts in this group yet!</h2>
@@ -26,4 +29,5 @@
                 {% include "posts/_post.html" %}
         {% endif %}
     </div>
+
 {% endblock %}
