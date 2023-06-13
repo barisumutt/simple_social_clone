@@ -1,12 +1,17 @@
 from django.db import models
 from django.utils.text import slugify
 from .. import misaka
+
 from django.contrib.auth import get_user_model
+User = get_user_model()
+
 from django import template
+register = template.Library()
+
 from django.urls import reverse
 
-register = template.Library()
-User = get_user_model()
+
+
 
 
 class Group(models.Model):
@@ -24,13 +29,13 @@ class Group(models.Model):
         self.description_html = misaka.html(self.description)
         super().save(*args, **kwargs)
 
-
     def get_absolute_url(self):
         return reverse('groups:single', kwargs={'slug': self.slug})
 
-
     class Meta:
         ordering = ['name']
+
+
 class GroupMember(models.Model):
     group = models.ForeignKey(Group, related_name='memberships')
     user = models.ForeignKey(User, related_name='user_groups')
