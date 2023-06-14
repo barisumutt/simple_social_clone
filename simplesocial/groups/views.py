@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-
+from groups import models
 from django.urls import reverse
 from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
-import models
 from .models import Group, GroupMember
 
 
