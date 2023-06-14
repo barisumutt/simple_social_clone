@@ -2,7 +2,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
-from simplesocial.groups.models import Group
+from groups.models import Group
 
 import markdown
 
