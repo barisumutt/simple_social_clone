@@ -7,6 +7,10 @@ from django.views import generic
 from .models import Group, GroupMember
 
 
+class ListGroups(generic.ListView):
+    model = Group
+
+
 class CreateGroup(LoginRequiredMixin, generic.CreateView):
     fields = ('name', 'description')
     model = Group
@@ -14,10 +18,3 @@ class CreateGroup(LoginRequiredMixin, generic.CreateView):
 
 class SingleGroup(generic.DetailView):
     model = Group
-
-
-class ListGroups(generic.ListView):
-    model = Group
-
-
-# Create your views here.
